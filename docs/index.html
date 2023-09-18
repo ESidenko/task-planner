@@ -1,0 +1,28 @@
+<html>
+<head>
+<script src="https://unpkg.com/vue@2"></script>
+</head>
+<body>
+<div id="app">
+  My name is <input v-model="name">
+</div>
+<script>
+const app = new Vue({
+  el: '#app',
+  data: {
+    name: ''
+  },
+  mounted() {
+    if (localStorage.name) {
+      this.name = localStorage.name;
+    }
+  },
+  watch: {
+    name(newName) {
+      localStorage.name = newName;
+    }
+  }
+});
+</script>
+</body>
+</html>
